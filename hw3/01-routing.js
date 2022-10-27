@@ -36,7 +36,6 @@ const server = http.createServer((req, res) => {
 
   if (req.url === '/') {
     let routeResults = getRoutes();
-
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write(`<h1>Exercise 01</h1>`);
     res.write(`<ul> ${routeResults} </ul>`);
@@ -44,6 +43,46 @@ const server = http.createServer((req, res) => {
   }
 
   // Add your code here
+    if(req.url == '/welcome'){
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write('<h1> Welcome to Middle Earth! <h1>');
+        res.end();
+    }
+
+    if(req.url == '/redirect'){
+        res.writeHead(302, { 'Location': 'http://localhost:5000/redirected' });
+        res.end();
+    }
+
+    if(req.url == '/redirected'){
+        res.writeHead(302, { 'Content-Type': 'text/html' });
+        res.write('<h1> Redirected... <h1>');
+        res.end();
+    }
+
+    if(req.url == '/cache'){
+        res.writeHead(200, { 'Cache-Control': 'max-age = 86400' });
+        res.write('<h1> This resource was cached! <h1>');
+        res.end();
+    }
+
+    if(req.url == '/cookie'){
+        res.writeHead(200, { 'Cookie': 'hello = world' });
+        res.write('<h1> yummm cookies! RIP cookie Monsta <h1>');
+        res.end();
+    }
+
+    if(req.url == '/check-cookies'){
+
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        if(res.cookie == 'hello'){
+        res.write('<h1> Yes! <h1>');
+        }
+        else{
+        res.write('<h1> No....! <h1>');
+        }
+        res.end();
+    }
 });
 
 server.listen(port, () => {
