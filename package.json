@@ -1,6 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.18.2",
+=======
+>>>>>>> 7c6db82f4498d2fc668e4001b0e9b507f4ee85e8
     "ini": "^3.0.1"
   }
 }
