@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
     }
 
     if(req.url == '/redirect'){
-        res.writeHead(302, { 'Location': 'http://localhost:5000/redirected' });
+        res.writeHead(302, { 'Location': 'http://localhost:5001/redirected' });
         res.end();
     }
 
