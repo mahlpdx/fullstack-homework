@@ -59,7 +59,7 @@ app.get("/redirected", (req, res) => {
 });
 
 app.get("/cache", (req, res) => {
-  res.set("Cache-control", "public, max-age=86400");
+  res.set("Cache-control", "public, max-age=86400000");
   res.set("Content-Type", "text/plain");
   res.status(200);
   res.send(`Resource was cached`);
